@@ -1,8 +1,14 @@
 #!/bin/python
 import tkinter
 from tkinter import messagebox, IntVar
+import webbrowser
 
 # Pensado originalmente para las solemnes en la Universidad Autonoma
+
+def ver_notas():
+    WEB = "https://autoservicioestudiante.uautonoma.cl/StudentSelfService/ssb/studentGrades"
+    webbrowser.open(WEB)
+
 
 def calcular():
     n1 = nota1.get()
@@ -63,8 +69,8 @@ tkinter.Entry(tk, textvariable=nota3).grid(row=5, column=0, padx=5, pady=20)
 tkinter.Label(tk, text="PORCENTAJE NOTA 3", bg="black", fg="white").grid(row=4, column=1, padx=5, pady=20)
 tkinter.Entry(tk, textvariable=percent3).grid(row=5, column=1, padx=5, pady=20)
 
-
-
-
 tkinter.Button(tk, text="CALCULAR", command=calcular, bg="RED").grid(row=6, column=1)
+
+tkinter.Button(tk, text="VER NOTAS", command=ver_notas, bg="GREEN").grid(row=6, column=0)
+
 tk.mainloop()
