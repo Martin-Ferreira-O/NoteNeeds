@@ -1,3 +1,4 @@
+#!/bin/python
 import tkinter
 from tkinter import messagebox, IntVar
 
@@ -23,6 +24,10 @@ def calcular():
     
     nota_final = (NOTA_MINIMA - promedio_general) / p4
 
+    if nota_final <= 0:
+        messagebox.showinfo("ERES UN FUCKING GENIO",f"Ya pasaste, tu nota 4 puede ser 0 y aun asi pasas ({nota_final})!")
+        return
+    
     messagebox.showinfo("NOTA MINIMA NECESARIA",f"Necesitas como minimo un [{nota_final}] en tu nota 4 para pasar, SUERTE")
 
 tk = tkinter.Tk()
