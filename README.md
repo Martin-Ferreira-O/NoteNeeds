@@ -11,9 +11,9 @@ Ingresar las notas que te han dado (Puedes verla en la web usando el boton ver n
 
 
 # Comming soon
-- [x] Crea una base de datos MongoDB
-- [x] Que permita crear modificar y borrar materias, Opciones por semestre.
-- [x] A estas materias, irles asignando las notas que tienes
+- [D] Crea una base de datos MongoDB
+- [D] Que permita crear modificar y borrar materias, Opciones por semestre.
+- [D] A estas materias, irles asignando las notas que tienes
 - [x] El programa, se conecte a la base de datos, y te diga que nota necesitas en cada materia segun lo que hayas registrado.
 
 ### Ideás en un futuro más lejano

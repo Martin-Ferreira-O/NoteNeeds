@@ -3,6 +3,9 @@ from pymongo.database import Database
 
 URI = ""
 
+# _id deberia ser el rut, ya que es un identificador unico
+# No utilizar un id incremental, ya que si se borra un perfil, se pierde el orden
+
 class Database:
     def __init__(self, client: MongoClient):
         self.client = client
@@ -11,23 +14,33 @@ class Database:
     def create_profile(self, name, rut, university):
 
         profile = self.db["profile"] # Select the "usuarios" collection from the database
-        _id = profile.count_documents({}) + 1
 
         profile_default = {
-            "_id": _id,
+            "_id": rut,
             "name": name,
-            "rut": rut,
             "universidad": university
         }
 
         profile.insert_one(profile_default)
 
 
+    # El _id del curso, no puede ser el rut del estudiante, ya que un estudiante puede tener varios cursos
+    # por lo que el _id deberia ser un identificador unico del curso
+
     def add_course(self, course: dict):
-        # course need _id, name, grade[]
-        # grade: {grade, weight}
+        course_default = {
+            "_id": 1,
+            "name": "Calculo 1",
+            "grade": [
+                {"grade": 5, "weight": 0.3},
+                {"grade": 4, "weight": 0.3},
+                {"grade": 3, "weight": 0.4}
+            ]
+        }
+        
+        # Creame un metodo que permita establecer un _id para el curso
         try:
-            self.db["course"].insert_one(course)
+            self.db["course"].insert_one(course_default)
         except Exception as e:
             print(e)
 
