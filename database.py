@@ -7,9 +7,9 @@ URI = ""
 # No utilizar un id incremental, ya que si se borra un perfil, se pierde el orden
 
 class Database:
-    def __init__(self, client: MongoClient):
-        self.client = client
-        self.db = client["users"]
+    def __init__(self):
+        self.client = MongoClient(URI)
+        self.db = self.client["users"]
 
     def create_profile(self, name, rut, university):
 

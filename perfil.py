@@ -31,6 +31,7 @@ def guardar_perfil():
         db.create_profile(nombre.get(), rut.get(), universidad.get())
 
         messagebox.showinfo("Perfil", "Perfil guardado correctamente")
+        root.destroy() # Cerramos la ventana
     else:
         messagebox.showerror("Perfil", "Debes completar todos los campos")
 
@@ -40,29 +41,31 @@ def guardar_perfil():
 
 # Label
 
-label_nombre = Label(root, text="Nombre", font=("Arial", 20), bg="#ccc")
-label_nombre.place(x=50, y=50)
+if __name__ == '__main__':
 
-label_rut = Label(root, text="Rut", font=("Arial", 20), bg="#ccc")
-label_rut.place(x=50, y=100)
+    label_nombre = Label(root, text="Nombre", font=("Arial", 20), bg="#ccc")
+    label_nombre.place(x=50, y=50)
 
-label_universidad = Label(root, text="Universidad", font=("Arial", 20), bg="#ccc")
-label_universidad.place(x=50, y=150)
+    label_rut = Label(root, text="Rut", font=("Arial", 20), bg="#ccc")
+    label_rut.place(x=50, y=100)
 
-# Entry
+    label_universidad = Label(root, text="Universidad", font=("Arial", 20), bg="#ccc")
+    label_universidad.place(x=50, y=150)
 
-entry_nombre = Entry(root, font=("Arial", 20), textvariable=nombre)
-entry_nombre.place(x=250, y=50)
+    # Entry
 
-entry_rut = Entry(root, font=("Arial", 20), textvariable=rut)
-entry_rut.place(x=250, y=100)
+    entry_nombre = Entry(root, font=("Arial", 20), textvariable=nombre)
+    entry_nombre.place(x=250, y=50)
 
-entry_universidad = Entry(root, font=("Arial", 20), textvariable=universidad)
-entry_universidad.place(x=250, y=150)
+    entry_rut = Entry(root, font=("Arial", 20), textvariable=rut)
+    entry_rut.place(x=250, y=100)
 
-# Button
+    entry_universidad = Entry(root, font=("Arial", 20), textvariable=universidad)
+    entry_universidad.place(x=250, y=150)
 
-button_guardar = Button(root, text="Guardar", font=("Arial", 20), command=guardar_perfil)
-button_guardar.place(x=50, y=200)
+    # Button
 
-root.mainloop()
+    button_guardar = Button(root, text="Guardar", font=("Arial", 20), command=guardar_perfil)
+    button_guardar.place(x=50, y=200)
+
+    root.mainloop()
